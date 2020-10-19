@@ -1,6 +1,7 @@
 import React from 'react';
-import {  ListGroup } from 'react-bootstrap';
-function TodoList(props) {
+import {  ListGroup, Button, Card  } from 'react-bootstrap';
+import './todo.scss';
+function TodoList(props, handleComplete) {
     return (
       <ListGroup className="lists">
         {props.list.map(item => (
@@ -8,9 +9,17 @@ function TodoList(props) {
             className={`complete-${item.complete.toString()}`}
             key={item._id}
           >
-            <span  className="todoList" onClick={() => props.handleComplete(item._id)}>
-              {item.text}
-            </span>
+            <Card  className="todoList" onClick={() => props.handleComplete(item._id)}>
+            {item.complete } {item.assignee }
+            <Button   style={{    width: '3em',
+        position: 'relative',
+        left: '29em',
+        bottom: '1.3em'}} variant="danger" className='delete' onClick={() => props.handleDelete(item._id)}>X</Button>
+            
+                {item.text} 
+                {item.difficulty }   
+            </Card>
+            
           </ListGroup.Item>
         ))}
       </ListGroup>

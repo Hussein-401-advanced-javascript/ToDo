@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import TodoForm from './form.js';
 import TodoList from './list.js';
 import { Navbar } from 'react-bootstrap';
+import useAjax from '../hoocks/useAjax.js'
 
 import './todo.scss';
 
 function ToDo(props) {
 
   const [list, setList] = useState([]);
+  const [ _addItem , _toggleComplete , _getTodoItems , deleteItem] = useAjax()
 
   // constructor(props) {
   //   super(props);
@@ -71,6 +73,8 @@ function ToDo(props) {
           <TodoList
             list={list}
             handleComplete={toggleComplete}
+            handleDelete={deleteItem}
+
           />
         </div>
       </section>
