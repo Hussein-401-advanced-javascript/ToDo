@@ -43,14 +43,14 @@ body, html {
     }
     .list-group{
         width: 35em;
-        .list-group-item{
+        // .list-group-item{
             
-            &.complete-true {
+        //     // &.complete-true {
                
-                text-decoration:line-through;
+        //     //     text-decoration:line-through;
                
-              }
-            }
+        //     //   }
+        //     }
     }
     ul {
         list-style-type:none;
