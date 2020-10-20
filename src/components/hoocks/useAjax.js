@@ -1,76 +1,17 @@
-import { useState } from 'react';
-import axios from 'axios';
-const todoAPI = 'https://api-js401.herokuapp.com/api/v1/todo';
-const useAjax = () => {
-    const [list, setList] = useState([]);
+import axios from "axios";
 
-    const _addItem = (item) => {
-      item.due = new Date();
-      axios({
-        url:todoAPI,
-        method: 'post',
+export default () => {
+
+    const axiosApi = (url, method, body) => {
+      return axios({
+        url: url,
+        method: method,
         mode: 'cors',
         cache: 'no-cache',
         headers: { 'Content-Type': 'application/json' },
-        data: JSON.stringify(item)
+        data: body
       })
-        .then(response => {
-            setList([...list, response.data])
-            })
-        .catch(console.error);
-    };
-  
-    const _toggleComplete = id => {
-  
-      let item = list.filter(i => i._id === id)[0] || {};
-  
-      if (item._id) {
-  
-        item.complete = item.complete === 'complete' ? 'pending' : 'complete';
-  
-        let url = `${todoAPI}/${id}`;
-  
-        axios({
-          method: 'put',
-          url : url,
-          mode: 'cors',
-          cache: 'no-cache',
-          headers: { 'Content-Type': 'application/json' },
-          data: JSON.stringify(item)
-        })
-          .then(savedItem => {
-            setList(list.map(listItem => listItem._id === item._id ? savedItem.data : listItem));
-          })
-          .catch(console.error);
-      }
-    };
-    const deleteItem = id => {
-        let item = list.filter(i => i._id === id)[0] || {};
-        if (item._id) {
-          let url = `${todoAPI}/${id}`;
-    
-          axios( {
-              url : url,
-            method: 'delete',
-            mode: 'cors',
-            cache: 'no-cache',
-            headers: { 'Content-Type': 'application/json' },
-          })
-            .then(() => {
-              setList(list.filter(listItem => listItem._id !== item._id ));
-            })
-            .catch(console.error);
-        }
-      };
-  
-    const _getTodoItems = () => {
-    axios.get(todoAPI)
-      .then(response => setList(response.data.result))
-    };
+    }
 
-    return [list , _addItem , _toggleComplete , _getTodoItems ,deleteItem]
-
+    return [axiosApi];
 }
-
-
-export default useAjax;
