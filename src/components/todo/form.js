@@ -1,6 +1,6 @@
-// import React, { useState, useEffect } from 'react';
+import { ListGroup, Button, Card } from 'react-bootstrap';
 import React from 'react';
-import useForm  from '../hoocks/form-hoocks.js'
+import useForm from '../hoocks/form-hoocks.js'
 
 function TodoForm(props) {
 
@@ -15,14 +15,14 @@ function TodoForm(props) {
   //   setItem({ ...item, [e.target.name]: e.target.value });
   // };
 
-  function formHandler(item){
+  function formHandler(item) {
     // e.preventDefault();
     // e.target.reset();
     // console.log('in line21', item);
     props.handleSubmit(item);
     // console.log('in line23');
     // const item = {};
-  //  setItem(form);
+    //  setItem(form);
   };
 
   // render() {
@@ -46,8 +46,17 @@ function TodoForm(props) {
           <span>Assigned To</span>
           <input type="text" name="assignee" placeholder="Assigned To" onChange={handleInputChange} />
         </label>
-        <button>Add Item</button>
-      </form>
+        <button style={{
+          cursor: 'pointer',
+          color: '#fff',
+          background: '#007bff',
+          borderRadius: '10px',
+        }}>
+        Add Item
+    </button>
+       
+        
+      </form >
     </>
   );
   // }
