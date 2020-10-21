@@ -5,7 +5,7 @@ import useAjax from '../hoocks/useAjax.js'
 
 import './todo.scss';
 
-const todoAPI = 'https://api-js401.herokuapp.com/api/v1/todo';
+const todoAPI = 'https://todoapi-ahmad.herokuapp.com/api/v1/user';
 
 
 const ToDo = () => {

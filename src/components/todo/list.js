@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { ListGroup, Button, Card, Dropdown, Row, Col } from 'react-bootstrap';
+import {  Button, Card, Row, Col } from 'react-bootstrap';
 
 import { SiteContext } from "../context/context.js";
 import './todo.scss';
@@ -20,12 +20,7 @@ function TodoList(props) {
         </Dropdown.Menu>
       </Dropdown> */}
 
-      <Button style={{
-        width: '6em',
-        position: 'relative',
-        left: '29em',
-        bottom: '3.3em'
-      }} variant="danger" className='delete'>remove completed</Button>
+
 
 
       {/* <Card className="lists"> */}
@@ -37,6 +32,12 @@ function TodoList(props) {
           width: '33em',
           marginBottom: '1.3em'
         }}>
+          <Button style={{
+            width: '6em',
+            position: 'relative',
+            left: '29em',
+            bottom: '3.3em'
+          }} variant="danger" className='delete'>remove completed</Button>
           <Button className='itemComplete' variant={item.complete ? "danger" : "success"}
             className={`complete-${item.complete.toString()}`}
             key={item._id} onClick={() => props.handleComplete(item._id)}
