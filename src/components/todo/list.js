@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import {  Button, Card, Row, Col } from 'react-bootstrap';
+import { Button, Card, Row, Col } from 'react-bootstrap';
 
 import { SiteContext } from "../context/context.js";
 import './todo.scss';
@@ -9,21 +9,7 @@ function TodoList(props) {
   console.log(settingContext, "<<<>>>>><><><><><");
   return (
     <>
-      {/* <Dropdown>
-        <Dropdown.Toggle variant="success" id="dropdown-basic">
-          Dropdown Button
-       </Dropdown.Toggle>
-        <Dropdown.Menu>
-          <Dropdown.Item href="#/action-1">2</Dropdown.Item>
-          <Dropdown.Item href="#/action-2">4</Dropdown.Item>
-          <Dropdown.Item href="#/action-3">8</Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown> */}
 
-
-
-
-      {/* <Card className="lists"> */}
       {props.list.map(item => (
 
 
@@ -68,12 +54,7 @@ function TodoList(props) {
             }}> Difficulty : {item.difficulty}</Col>
           </Row>
         </Card>
-
-        // </Card>
       ))}
-
-      {/* </Card> */}
-
 
     </>
   );

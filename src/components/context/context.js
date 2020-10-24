@@ -1,25 +1,27 @@
-import React, { useState } from "react";
+import React, {useState} from 'react';
+
 
 export const SiteContext = React.createContext();
 
-function Context(props) {
+const SiteProvider = (props) => {
+    const [displayCompletedItems, setdisplayCompletedItems] = useState(false);
+    const [numItemsPerScreen, setnumItemsPerScreen] = useState(5);
+    const [defualtSortField, setdefualtSortField] = useState('name');
 
-  const [display, setDisplay] = useState("Hide");
-  const [items, setItems] = useState(2);
-  const [sort, setSort] = useState("string");
+    const state = {
+        displayCompletedItems, 
+        numItemsPerScreen, 
+        defualtSortField,
+        setdisplayCompletedItems,
+        setnumItemsPerScreen,
+        setdefualtSortField
+    }
 
-  const state = {
-    display,
-    items,
-    sort,
-    setDisplay,
-    setItems,
-    setSort,
-  };
+    return (
+        <SiteContext.Provider value={state}>
+            {props.children}
+        </SiteContext.Provider>
+    )
+} 
 
-  return (
-    <SiteContext.Provider value={state}>{props.children}</SiteContext.Provider>
-  );
-}
-
-export default Context;
+export default SiteProvider;

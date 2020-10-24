@@ -1,31 +1,16 @@
-// import { ListGroup, Button, Card } from 'react-bootstrap';
 import React from 'react';
 import useForm from '../hoocks/form-hoocks.js'
 
 function TodoForm(props) {
 
-  // const [item, setItem] = useState({});
   const [item, handleSubmit, handleInputChange] = useForm(formHandler)
 
-  // constructor(props) {
-  //   super(props);
-  //   this.state = { TodoForm: {} };
-
-  // const handleInputChange = e => {
-  //   setItem({ ...item, [e.target.name]: e.target.value });
-  // };
-
   function formHandler(item) {
-    // e.preventDefault();
-    // e.target.reset();
-    // console.log('in line21', item);
+
     props.handleSubmit(item);
-    // console.log('in line23');
-    // const item = {};
-    //  setItem(form);
+
   };
 
-  // render() {
   return (
     <>
       <h3>Add Item</h3>
@@ -52,14 +37,14 @@ function TodoForm(props) {
           background: '#007bff',
           borderRadius: '10px',
         }}>
-        Add Item
+          Add Item
     </button>
-       
-        
+
+
       </form >
     </>
   );
-  // }
+
 }
 
 export default TodoForm;

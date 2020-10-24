@@ -9,7 +9,8 @@ import './todo.scss';
 function ToDo(props) {
 
   const [list, setList] = useState([]);
-  const [ _addItem , _toggleComplete , _getTodoItems , deleteItem] = useAjax()
+  // const [ _addItem , _toggleComplete , _getTodoItems , deleteItem] = useAjax()
+  const [  deleteItem] = useAjax()
 
   // constructor(props) {
   //   super(props);
